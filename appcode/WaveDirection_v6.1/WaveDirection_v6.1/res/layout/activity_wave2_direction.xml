@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:weightSum="1" >
+
+        <com.hwc.wavedirection.ArrView
+            android:id="@+id/arr"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:src="@drawable/arr" />
+
+        <com.hwc.wavedirection.CompassView
+            android:id="@+id/cv2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:src="@drawable/compassrose" />
+
+        <com.hwc.wavedirection.CompassView
+            android:id="@+id/cv3"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:src="@drawable/compassrose" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textResult"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/button_start" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView_soundwave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textaccx"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" />
+
+    <TextView
+        android:id="@+id/textaccz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_Start"
+        android:layout_alignParentLeft="true"
+        android:text="@string/accx"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textaccy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textaccz"
+        android:layout_alignParentLeft="true"
+        android:text="@string/accx"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textaccx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textaccy"
+        android:layout_alignParentLeft="true"
+        android:text="@string/accx"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textPhase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textaccy"
+        android:layout_alignBottom="@+id/textaccy"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textaccz"
+        android:text="@string/accx"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Angle:" />
+
+</RelativeLayout>
