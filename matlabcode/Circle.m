@@ -58,9 +58,9 @@ if Anchory1 == Anchory2 && Anchory1 == 0             %两点在Y = 0直线上
             CenterPointy = eval(g.y(2));
         end
     end
-elseif Anchory1 == Anchory2 && Anchory1 == -3           %两点在Y = -3直线上
+elseif Anchory1 == Anchory2 && Anchory1 == -4           %两点在Y = -3直线上
     if OpenAngle < 90
-        if tmpy < -3
+        if tmpy < -4
             CenterPointx = tmpx;
             CenterPointy = tmpy;
         else
@@ -68,7 +68,7 @@ elseif Anchory1 == Anchory2 && Anchory1 == -3           %两点在Y = -3直线上
             CenterPointy = eval(g.y(2));
         end
     else
-        if tmpy < -3
+        if tmpy < -4
             CenterPointx = eval(g.x(2));
             CenterPointy = eval(g.y(2));
         else

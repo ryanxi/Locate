@@ -6,14 +6,14 @@ function [ Locatex,Locatey ] = LocatePoint1( Angles )
 
 format long;
 
-AnchorPoint = [6,12,18,30;0,0,0,-3];
+AnchorPoint = [6,12,18;0,0,0];
 
 Point = zeros(2,10);
 circlePoint = zeros(3,10);
 
 m=1;
-for i=1:1:3
-    for j=i+1:1:4
+for i=1:1:2
+    for j=i+1:1:3
         [circlePoint(1,m),circlePoint(2,m),circlePoint(3,m)] = Circle(AnchorPoint(1,i),AnchorPoint(2,i),Angles(1,i),AnchorPoint(1,j),AnchorPoint(2,j),Angles(1,j));
         m=m+1;
     end
@@ -25,9 +25,9 @@ for i=1:1:10
 end
 
 count = 1;
-for i=1:1:2
-    for j=i+1:1:3
-        for k=j+1:1:4
+for i=1:1:1
+    for j=i+1:1:2
+        for k=j+1:1:3
             [tmpx,tmpy] = CircleCrossPoint(AnchorPoint(1,i),AnchorPoint(2,i),Angles(1,i),AnchorPoint(1,j),AnchorPoint(2,j),Angles(1,j),AnchorPoint(1,k),AnchorPoint(2,k),Angles(1,k));
             if tmpx == inf || tmpy == inf
                 continue;
@@ -44,8 +44,8 @@ count1 = count - 1;
 minimum = inf;
 for i=1:1:count1
     sum = 0;
-    for j=1:1:3
-        for k = j+1:1:4
+    for j=1:1:2
+        for k = j+1:1:3
             dis = Distance(AnchorPoint(1,j),AnchorPoint(2,j),AnchorPoint(1,k),AnchorPoint(2,k),Point(1,i),Point(2,i));
             sum = sum + dis;
         end

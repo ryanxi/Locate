@@ -1,5 +1,5 @@
 function [ R,t ] = GetTransform1( local_coordinate, global_coordinate)
-%   Object Geo-tagging: Finding the transformation, rotation R and
+%   Object Geo-tagging: Finding the transformation(global to local), rotation R and
 %   translation t, between local and global coordinates
 %   Detailed explanation goes here
 %   local_coordinate - set of N positions in local camera frame
