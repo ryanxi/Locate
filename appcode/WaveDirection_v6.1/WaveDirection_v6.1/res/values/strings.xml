@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">WaveDirection</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_wave2_direction">Wave2Direction</string>
+    <string name="button_start">Aready Stopped, Click to Start</string>
+    <string name="SoundWave">SoundWave</string>
+    <string name="Stop">Stop</string>
+    <string name="accx">0.0000  </string>
+
+</resources>
