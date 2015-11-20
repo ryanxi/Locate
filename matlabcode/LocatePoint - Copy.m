@@ -4,14 +4,14 @@ function [ Locatex,Locatey ] = LocatePoint( Angles )
 %vertic Angles[] present the opening angle from X axis to acoustic source
 %   Detailed explanation goes here
 
-AnchorPoint = [0,12,18,24,30;-3,0,0,0,-3];
+AnchorPoint = [0,6,12,18,24,30;-3,0,0,0,0,-3];
 
 Point = zeros(2,30);
 circlePoint = zeros(3,20);
 
 m=1;
-for i=1:1:4
-    for j=i+1:1:5
+for i=1:1:5
+    for j=i+1:1:6
         [circlePoint(1,m),circlePoint(2,m),circlePoint(3,m)] = Circle(AnchorPoint(1,i),AnchorPoint(2,i),Angles(1,i),AnchorPoint(1,j),AnchorPoint(2,j),Angles(1,j));
         m=m+1;
     end
@@ -22,9 +22,9 @@ for i=1:1:30
 end
 
 count = 1;
-for i=1:1:3
-    for j=i+1:1:4
-        for k=j+1:1:5
+for i=1:1:4
+    for j=i+1:1:5
+        for k=j+1:1:6
             [tmpx,tmpy] = CircleCrossPoint(AnchorPoint(1,i),AnchorPoint(2,i),Angles(1,i),AnchorPoint(1,j),AnchorPoint(2,j),Angles(1,j),AnchorPoint(1,k),AnchorPoint(2,k),Angles(1,k));
             if tmpx == inf || tmpy == inf
                 continue;
@@ -36,7 +36,7 @@ for i=1:1:3
         end
     end
 end
-minimumPoint1 = 1;
+
 count2 = count - 1;
 minimum = inf;
 for i=1:1:count2
