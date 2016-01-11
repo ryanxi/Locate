@@ -1,45 +1,59 @@
-function  [] = plot2( err)
+function  [y] = plot2( err,err1)
+%function  [y] = plot2( err1)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
+figure
 
+set(gca,'Position',[.13 .17 .70 .54]);
 initValue=0;
 step=0.1;
-%sample1=[0.7,1.2,1.5,2.0,1.3,1.7,2.2,2.5,3.6];
-%sample2=[0.8,1.1,1.4,2.1,1.2,1.8,2.1,2.4,3.7,4.2,5.4];
-%endValue1=ceil(max(sample1));
-subplot(2,1,1);
- 
-%endValue=max(endValue1,endValue2);
- 
-%[xTime1,yPercentage1]=cdf(initValue,step,endValue,sample1);
-%[xTime2,yPercentage2]=cdf(initValue,step,endValue,sample2);
- [xTime1,yPercentage1]=cdf(initValue,step,max(err),err);
 
-plot(xTime1,yPercentage1,'r');
-hold on 
+[xTime1,yPercentage1]=cdf(initValue,step,max(err),err);
+plot(xTime1,yPercentage1,'-g*','LineWidth',2,'MarkerEdgeColor','g','MarkerFaceColor','g','MarkerSize',4);
+hold on;
+[xTime2,yPercentage2]=cdf(initValue,step,max(err1),err1);
+plot(xTime2,yPercentage2,'-rs','LineWidth',2,'MarkerEdgeColor','r','MarkerFaceColor','r','MarkerSize',4);
 
-%[xTime2,yPercentage2]=cdf(initValue,step,max(err1),err1);
+maxValue=max(max(err1),max(err));
+%maxValue=max(max(err1));
+axis([0 maxValue 0 1]);
+set(gca,'XTick',0:0.5:maxValue);
+set(gca,'YTick',0:0.2:1);
 
-%plot(xTime2,yPercentage2,'g');
- 
- 
-ylabel('CDF (%)');
-xlabel('Error (m)');
+ylabel('CDF (100%)');
+%xlabel('Relative Direction Error (degree)');
+xlabel('Localization Error (m)');
+legend({'Swadloon','SITE'},'Location','SouthEast');
+%legend('SITE','Locatioin','SouthEast');
 
+fontsize = 20;
+set(get(gca,'XLabel'),'FontSize',fontsize);
+set(get(gca,'YLabel'),'FontSize',fontsize);
+set(gca,'FontSize',fontsize);
 
-legend('ILAPS');
-
-subplot(2,1,2);
-e = sort(err);
-for i=2:1:9
-    y(i-1,1) = prctile(e,i*10);
+figure
+set(gca,'Position',[.13 .17 .70 .54]);
+%subplot(2,1,2);
+e = sort(err1);
+k = 1;
+for i=6:0.5:9.5
+    y(k,1) = prctile(e,i*10);
+    k = k+1;
 end
 
 bar(y,1);
 grid on;
-set(gca,'xticklabel',{'20%','30%','40%','50%','60%','70%','80%','90%'});
+set(gca,'xticklabel',{'60','65','70','75','80','85','90','95'},'FontSize',16);
 
-ylabel('accuracy error (m)');
-xlabel('prctile (%)');
+%ylabel('localization error (m)');
+ylabel('localization error (degree)');
+xlabel('percentile (%)');
+
+fontsize = 20;
+set(get(gca,'XLabel'),'FontSize',fontsize);
+set(get(gca,'YLabel'),'FontSize',fontsize);
+%set(get(gca,'XTick'),'FontSize',16);
+%set(get(gca,'YTick'),'FontSize',fontsize);
+
 end
 
